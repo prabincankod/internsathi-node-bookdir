@@ -17,4 +17,15 @@ const addBook = async (req: Request, res: Response) => {
   }
 };
 
-export { addBook };
+const deleteBook = async (req: Request, res: Response) => {
+  try {
+    const book = await prismaClient.book.delete({
+      where: { id: parseInt(req.params.id) },
+    });
+    res.status(200).json({ message: "Book deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export { addBook, deleteBook };
