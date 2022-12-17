@@ -9,7 +9,7 @@ bookDir: book directory api for internsathi node assignment
 ### TODO
 
 - [x] basic setup
-- [] add book
+- [x] add book
 - [] edit book
 - [] delete book
 - [] view book
