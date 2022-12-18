@@ -60,4 +60,18 @@ const searchBook = async (req: Request, res: Response) => {
     res.status(500).json({ message: error });
   }
 };
-export { addBook, deleteBook, editBook, searchBook };
+
+const viewBook = async (req: Request, res: Response) => {
+  try {
+    console.log(req?.query?.s);
+    const book = await prismaClient.book.findUnique({
+      where: {
+        id: parseInt(req.params.id),
+      },
+    });
+    res.status(200).send(book);
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+export { addBook, deleteBook, editBook, searchBook, viewBook };
