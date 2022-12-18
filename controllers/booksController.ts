@@ -43,4 +43,21 @@ const editBook = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-export { addBook, deleteBook, editBook };
+
+const searchBook = async (req: Request, res: Response) => {
+  try {
+    console.log(req?.query?.s);
+    const books = await prismaClient.book.findMany({
+      where: {
+        title: {
+          //@ts-ignore
+          contains: req?.query?.s,
+        },
+      },
+    });
+    res.status(200).send(books);
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+export { addBook, deleteBook, editBook, searchBook };

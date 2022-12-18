@@ -11,7 +11,7 @@
   "author": "prabincankod",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.3.1",
+    "@prisma/client": "^4.7.1",
     "dotenv": "^16.0.2",
     "express": "^4.18.1"
   },
